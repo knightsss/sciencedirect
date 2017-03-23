@@ -1,0 +1,12 @@
+﻿安装相关库
+>pip install pybloom
+
+在正式采集的时候启动该脚本
+>python redis_url_filter.py
+该脚本将science_article_url_tmp消息队列里的信息通过布隆过滤器
+存入到最终的science_article_url，这里可以保证重复的URL不再入队
+避免文章的重复采集。
+
+
+脚本启动后将会生成bf_redis文件，每5分钟更新一次，这里记录了布隆过滤器的状态，采集完毕可进行备份。
+
